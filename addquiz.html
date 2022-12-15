@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Quiz Admin</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+  <body>
+    <nav class="navbar">
+      <!-- logo -->
+      <div class="logo">Logo</div>
+      <!-- NAVIGATION MENU -->
+
+      <ul class="nav-links">
+        <div class="menu">
+          <li><img src="Assets/img/user_admn.png" alt="" />&nbsp;Hello Name</li>
+          <li>
+            <img src="Assets/img/exit_admin.png" alt="" />&nbsp;<a
+              href="login.html"
+              >Signout</a
+            >
+          </li>
+        </div>
+      </ul>
+    </nav>
+
+    <div class="tabs-container">
+      <div class="tabs">
+        <li><a href="">Add Quiz</a></li>
+        <li><a href="">Results</a></li>
+      </div>
+    </div>
+
+    <div class="quiz-container">
+      <div class="quiz-name-time">
+        <h2>Quiz name</h2>
+        <input type="text" placeholder="Start typing" />
+        <h2>Time</h2>
+        <input class="num" type="number" placeholder="Numbers Only" />
+        <span>Minutes</span>
+      </div>
+      <div class="quiz-question-ans">
+        <div class="add-quiz" id="addquiz">
+      
+          <div class="select-answer box" id="selectans">
+            <h2>Your Question</h2>
+            <input class="question" type="text" placeholder="Q name" />
+            <h3>Options</h3>
+            <br />
+            <div class="all-options" id="alloption">
+                <div class="option" id="option">
+                    <label class="checkbox">
+                      <input type="checkbox" checked="checked" />
+                      <span class="checkmark"></span>
+                    </label>
+                    <input type="text" name="" id="" />
+                    <p>&#9587;</p>
+                  </div>
+            </div>
+          
+            <div class="add-options">
+              <label class="checkbox">
+                <input type="checkbox" checked="checked" />
+                <span class="checkmark"></span>
+              </label>
+              <button class="add-option-btn">+ Add Option</button>
+              <p>&#9587;</p>
+            </div>
+
+            <div class="more-questions">
+              <button class="more-question-btn select_que_btn">+ More Questions</button>
+            </div>
+          </div>
+
+
+
+          <div class="type-answer box" id="typeans">
+            <h2>Your Question</h2>
+            <input class="question" type="text" placeholder="Type Answer" />
+            <br /><br />
+            <h2>Correct Answer</h2>
+            <input class="question" type="text" placeholder="Correct is" />
+            <div class="more-questions">
+              <button  class="more-question-btn typeans_btn">
+                + More Questions
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="finish-and-start">
+          <button class="finish-btn" onclick="location.href='results.html'">
+            Finish and Start
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+        const fragment = new DocumentFragment();
+    var typeanswer=document.getElementById('typeans')
+    var selectanswer=document.getElementById('selectans')
+   var addquiz=document.getElementById('addquiz')
+
+
+   var singleoption=document.getElementById('option')
+    var alloptiondiv=document.getElementById('alloption')
+
+$(document).ready(function() {
+
+    $(document.body).on('click','.typeans_btn*', function(e) {  
+        fragment.appendChild(typeanswer.cloneNode(true));
+         addquiz.appendChild(fragment);
+        
+    });
+
+
+    $(document.body).on('click','.select_que_btn*', function(e) {  
+        fragment.appendChild(selectanswer.cloneNode(true));
+         addquiz.appendChild(fragment);
+        
+    });
+
+
+    // $(document.body).on('click','.add-option-btn*', function(e) {  
+    //     fragment.appendChild(singleoption.cloneNode(true));
+    //      alloptiondiv.appendChild(fragment);
+        
+    // });
+
+
+});
+    
+    </script>
+  </body>
+</html>
